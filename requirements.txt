@@ -1,7 +1,7 @@
 Sphinx==4.4.0
 sphinx-autobuild==2021.3.14
 make==0.1.6.post2
-sphinx_rtd_dark_mode @ git+https://github.com/FIRST-Tech-Challenge/ftcdocs-helper@main#subdirectory=sphinx_rtd_dark_mode_v2
+sphinx-rtd-dark-mode-v2-workaround  # Workaround for unconventional package naming at ftcdocs-helper
 javasphinx @ git+https://github.com/FIRST-Tech-Challenge/ftcdocs-helper@main#subdirectory=javasphinx
 sphinx_design==0.2.0
 sphinxcontrib-googleanalytics @ git+https://github.com/FIRST-Tech-Challenge/ftcdocs-helper@main#subdirectory=googleanalytics
