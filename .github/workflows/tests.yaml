@@ -1,0 +1,73 @@
+name: Tests
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - "**"
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+        python-version: ["3.10", "3.11", "3.12-dev"]
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install tree (macOS)
+        if: matrix.os == 'macos-latest'
+        run: brew install tree
+
+      - name: Install tree (Windows)
+        if: matrix.os == 'windows-latest'
+        run: Install-Module PSScriptTools -scope CurrentUser -force
+
+      - name: Install tree (Linux)
+        if: matrix.os == 'ubuntu-latest'
+        run: sudo apt install tree
+
+      - name: Install the package
+        run: pip install .
+
+      - name: Run the package
+        run: bootstrapper tr -b main
+
+      - name: See results (non-Windows)
+        if: matrix.os != 'windows-latest'
+        run: |
+          cd ftc-docs-tr
+          tree . -L 2
+          echo "================================"
+          echo "Check if everything is OK (clean paths, correct syntax)"
+          echo "================================"
+          cat sphinx.po
+          echo "================================"
+          echo "Check if everything is OK (clean paths, correct syntax)"
+          echo "================================"
+          cat index.po
+
+      - name: See results (Windows)
+        if: matrix.os == 'windows-latest'
+        run: |
+          cd ftc-docs-tr
+          Show-Tree . -Depth 2 -ShowItem
+          echo "================================"
+          echo "Check if everything is OK (clean paths, correct syntax)"
+          echo "================================"
+          cat sphinx.po
+          echo "================================"
+          echo "Check if everything is OK (clean paths, correct syntax)"
+          echo "================================"
+          cat index.po
