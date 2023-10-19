@@ -1,6 +1,6 @@
 # ftc-docs-bootstrapper
 
-This repository contains the scripts and data used to bootstrap a new translation of the FTC documentation.
+This repository contains the scripts and data used to bootstrap a new translation of the FIRS Tech Challenge documentation.
 
 ## Installation
 
