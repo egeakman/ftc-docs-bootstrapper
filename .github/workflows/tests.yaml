@@ -42,7 +42,7 @@ jobs:
         run: pip install .
 
       - name: Run the package
-        run: bootstrapper tr -b main
+        run: ftc-docs tr
 
       - name: See results (non-Windows)
         if: matrix.os != 'windows-latest'

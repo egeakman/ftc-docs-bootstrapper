@@ -1,4 +1,4 @@
-# Makefile for {{translation.language}} FTC Documentation
+# Makefile for FIRST Tech Challenge Documentation {{translation.language}} Translation
 #
 # Here is what you can do:
 #

@@ -1,23 +1,26 @@
 from setuptools import find_packages, setup
 
-version = "0.1.0"
+version = "0.1.2"
 
 with open("README.md", "r", encoding="utf-8") as f:
     long_description = f.read()
+
+with open("requirements.txt", "r", encoding="utf-8") as f:
+    requirements = [line.strip() for line in f.readlines()]
 
 setup(
     name="ftc-docs-bootstrapper",
     author="egeakman",
     author_email="me@egeakman.dev",
     url="https://github.com/egeakman/ftc-docs-bootstrapper",
-    description="Bootstrapper for FTC documentation translations",
+    description="Bootstrapper for FIRST Tech Challenge documentation translations",
     long_description=long_description,
     long_description_content_type="text/markdown",
     version=version,
     license="MIT",
     download_url=f"https://github.com/egeakman/ftc-docs-bootstrapper/archive/{version}.tar.gz",
     packages=find_packages(where="."),
-    install_requires=["sphinx==4.4.0"],
+    install_requires=requirements,
     include_package_data=True,
     package_data={
         "bootstrapper": ["data/.gitignore", "data/Makefile", "data/README.md"]
@@ -25,7 +28,7 @@ setup(
     python_requires=">=3.10",
     entry_points={
         "console_scripts": [
-            "bootstrapper=bootstrapper.bootstrapper:main",
+            "ftc-docs=bootstrapper.bootstrapper:main",
         ]
     },
     classifiers=[

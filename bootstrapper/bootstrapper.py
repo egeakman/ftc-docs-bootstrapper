@@ -29,7 +29,7 @@ logger.addHandler(handler)
 
 
 class Bootstrapper:
-    def __init__(self, language: str, branch: str = "3.12") -> None:
+    def __init__(self, language: str, branch: str = "main") -> None:
         self.language = language
         self.branch = branch
         self.translation_repo = f"ftc-docs-{self.language}"
@@ -209,16 +209,8 @@ def main() -> None:
         type=str,
         help="IETF language tag (e.g. tr, pt-br)",
     )
-    parser.add_argument(
-        "-b",
-        "--branch",
-        type=str,
-        default="main",
-        help="ftcdocs branch (e.g. main)",
-        required=False,
-    )
     args = parser.parse_args()
-    Bootstrapper(args.language.lower().replace("_", "-"), args.branch).run()
+    Bootstrapper(args.language.lower().replace("_", "-")).run()
 
 
 if __name__ == "__main__":

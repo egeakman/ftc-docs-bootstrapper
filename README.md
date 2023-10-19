@@ -11,20 +11,18 @@ $ pip install ftc-docs-bootstrapper
 ## Usage
 
 ```bash
-$ bootstrapper --help
-usage: bootstrapper [-h] [-b BRANCH] language
+$ ftc-docs --help
+usage: ftc-docs [-h] language
 
 positional arguments:
   language              IETF language tag (e.g. tr, pt-br)
 
 options:
   -h, --help            show this help message and exit
-  -b BRANCH, --branch BRANCH
-                        ftcdocs branch (e.g. main)
 ```
 
 ## Example
 
 ```bash
-$ bootstrapper tr --branch main
+$ ftc-docs tr
 ```
