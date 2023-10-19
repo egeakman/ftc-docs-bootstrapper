@@ -2,10 +2,10 @@ Sphinx==4.4.0
 sphinx-autobuild==2021.3.14
 make==0.1.6.post2
 sphinx-rtd-dark-mode-v2-workaround  # Workaround for unconventional package naming at ftcdocs-helper
-javasphinx @ git+https://github.com/FIRST-Tech-Challenge/ftcdocs-helper@main#subdirectory=javasphinx
+javasphinx-workaround  # Workaround for unconventional package naming at ftcdocs-helper
 sphinx_design==0.2.0
-sphinxcontrib-googleanalytics @ git+https://github.com/FIRST-Tech-Challenge/ftcdocs-helper@main#subdirectory=googleanalytics
-sphinxcontrib-cookiebanner @ git+https://github.com/FIRST-Tech-Challenge/ftcdocs-helper@main#subdirectory=cookiebanner
+sphinxcontrib-googleanalytics-workaround  # Workaround for unconventional package naming at ftcdocs-helper
+sphinxcontrib-cookiebanner-workaround  # Workaround for unconventional package naming at ftcdocs-helper
 sphinx-sitemap==2.3.0
 python-git-info==0.8.3
 sphinxcontrib-mermaid==0.9.2
